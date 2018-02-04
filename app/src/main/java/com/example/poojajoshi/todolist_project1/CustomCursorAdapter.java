@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
-import android.widget.EditText;
+import android.widget.TextView;
 
-public class CustomCursorAdapter extends CursorAdapter {
-    public CustomCursorAdapter(Context context, Cursor c) {
-        super(context, c);
+import java.io.Serializable;
+
+public class CustomCursorAdapter extends CursorAdapter implements Serializable {
+    public CustomCursorAdapter(Context context, Cursor c, int flags) {
+        super(context, c, 0);
         // super(context, c);
         c.moveToFirst();
     }
@@ -31,10 +33,10 @@ public class CustomCursorAdapter extends CursorAdapter {
         // here we are setting our data
         // that means, take the data from the cursor and put it in views
 
-        EditText textView_header =(EditText) view.findViewById(R.id.textView3);
-        EditText textView_title=(EditText) view.findViewById(R.id.textView2);
-        EditText textView_description=(EditText) view.findViewById(R.id.textView1);
-        EditText textView_timeStamp=(EditText) view.findViewById(R.id.textView);
+        TextView textView_header =(TextView) view.findViewById(R.id.textView3);
+        TextView textView_title=(TextView) view.findViewById(R.id.textView2);
+        TextView textView_description=(TextView) view.findViewById(R.id.textView1);
+        TextView textView_timeStamp=(TextView) view.findViewById(R.id.textView);
         ImageView img_status = (ImageView) view.findViewById(R.id.imageView);
 
         textView_timeStamp.setText(cursor.getString(cursor.getColumnIndex(cursor.getColumnName(3))));

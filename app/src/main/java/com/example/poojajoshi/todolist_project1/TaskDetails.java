@@ -1,5 +1,7 @@
 package com.example.poojajoshi.todolist_project1;
 
+import java.io.Serializable;
+
 public class TaskDetails {
     //private variables
     int task_id;
